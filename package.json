@@ -1,0 +1,11 @@
+{
+	"name": "twister",
+	"version": "0.1.0",
+	"dependencies": {
+		"consolidate": "~0.15.1",
+		"express": "~4.17.0",
+		"globs": "^0.1.4",
+		"jade": "~1.11.0",
+		"lodash": "~4.17.15"
+	}
+}

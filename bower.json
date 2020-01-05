@@ -1,0 +1,14 @@
+{
+  "name": "test-meanstack",
+  "description": "",
+  "main": "",
+  "authors": [
+    "wannapa <wannapa.sien@gmail.com>"
+  ],
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "angular": "~1.7.9",
+    "angular-ui-router": "~1.0.24"
+  }
+}
