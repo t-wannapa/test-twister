@@ -12,9 +12,11 @@ module.exports = {
 			'public/modules/**/css/*.css'
 		],
 		js: [
-			'public/modules/**/js/*.js',
-			'public/modules/core/core.client.module.js',
-			'public/modules/application.js'
+			'public/modules/config.js',
+			'public/modules/init.js',
+			'public/modules/*/*.js',
+			'public/modules/**/*.js',
+			'public/modules/**/js/*.js'
 		]
 	},
 	server: {

@@ -16,7 +16,7 @@ html(lang='en')
 
     each cssFile in cssFiles 
         link(rel='stylesheet', href='#{ cssFile }')
-  body#mainApp
+  body#twister
     header(data-ng-include="'/modules/core/views/header.client.view.jade'")
 
     block content
