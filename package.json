@@ -2,10 +2,17 @@
 	"name": "twister",
 	"version": "0.1.0",
 	"dependencies": {
+		"body-parser": "^1.19.0",
+		"connect-flash": "^0.1.1",
 		"consolidate": "~0.15.1",
 		"express": "~4.17.0",
+		"express-session": "^1.17.0",
 		"globs": "^0.1.4",
 		"jade": "~1.11.0",
-		"lodash": "~4.17.15"
+		"lodash": "~4.17.15",
+		"mongoose": "^5.8.4",
+		"morgan": "^1.9.1",
+		"passport": "^0.4.1",
+		"passport-local": "^1.0.0"
 	}
 }

@@ -9,6 +9,7 @@
   "private": false,
   "dependencies": {
     "angular": "~1.7.9",
-    "angular-ui-router": "~1.0.24"
+    "angular-ui-router": "~1.0.24",
+    "angular-bootstrap": "~2.5.0"
   }
 }

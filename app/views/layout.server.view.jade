@@ -20,6 +20,9 @@ html(lang='en')
     header(data-ng-include="'/modules/core/views/header.client.view.jade'")
 
     block content
+        
+    script(type='text/javascript').
+        var user = !{ user || 'null' }
 
     // jQuery (necessary for Bootstrap's JavaScript plugins)
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js')
