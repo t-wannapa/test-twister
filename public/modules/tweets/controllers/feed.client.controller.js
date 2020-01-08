@@ -3,10 +3,11 @@
 angular.module('tweets').controller('FeedController', [
 	'$scope', 
 	'$uibModal',
-	function($scope, $uibModal) {
+	'Authentication',
+	function($scope, $uibModal, Authentication) {
 		$scope.profile = {
-			name: 'test name',
-			screenName: 'kkkk',
+			name: Authentication.user.firstName + ' ' + Authentication.user.lastName,
+			screenName: Authentication.user.username,
 			tweetCount: 2,
 			followerCount: 34,
 			followingCount: 140

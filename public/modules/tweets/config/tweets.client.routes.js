@@ -21,7 +21,6 @@ angular.module('tweets')
 	'Authentication',
 	function ($rootScope, $state, Authentication) {
 		$rootScope.$on('$stateChangeStart', function (event, toState, toParam, fromState, fromParam) {
-		
 			if ( ((toState.name !== 'signup') && (toState.name !== 'signin')) 
 				&& !Authentication.user) {
 				event.preventDefault();
