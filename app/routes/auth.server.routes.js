@@ -12,4 +12,6 @@ module.exports = function (app) {
 		failureRedirect: '/signin',
 		failureFlash: true
 	}));
+
+	app.route('/signout').get(users.signout);
 }

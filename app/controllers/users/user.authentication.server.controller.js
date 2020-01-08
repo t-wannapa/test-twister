@@ -27,9 +27,16 @@ exports.signup = function (req, res) {
 					res.status(400).send(err);
 				} else {
 					res.redirect('/');
-					//res.json(user);
 				}
 			});
 		}
 	});
 };
+
+/**
+ * Signout
+ */
+exports.signout = function (req, res) {
+	req.logout();
+	res.redirect('/');
+  };
