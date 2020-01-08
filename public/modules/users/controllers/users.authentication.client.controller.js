@@ -4,8 +4,7 @@ angular.module('users').controller('AuthenticationController', [
 	'$scope',
 	'$http',
 	'$state',
-	'Auth',
-	function($scope, $http, $state, Auth) {
+	function($scope, $http, $state) {
 		$scope.user = {
 			email: 'a@gmail.com'
 		};
@@ -21,6 +20,19 @@ angular.module('users').controller('AuthenticationController', [
 						console.log(response);
   				});
 			}
-		}
+		};
+
+		$scope.signin = function(isValid) {
+			if (isValid) {
+				$http.post('/signin', $scope.user)
+				.then(
+					function successCallback(response) {
+    					$state.go('home');
+  					},
+  					function errorCallback(response) {
+						console.log(response);
+  				});
+			}
+		};
 	}
 ]);

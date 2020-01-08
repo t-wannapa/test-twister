@@ -6,6 +6,7 @@ module.exports = {
 			js: [
 				'public/lib/angular/angular.js',
 				'public/lib/angular-ui-router/release/angular-ui-router.min.js',
+				'public/lib/angular-ui-router/release/stateEvents.min.js',
 				'public/lib/angular-bootstrap/ui-bootstrap-tpls.min.js'
 			]
 		},

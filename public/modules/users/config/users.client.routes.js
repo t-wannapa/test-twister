@@ -8,6 +8,10 @@ angular.module('users').config([
 		.state('signup', {
 			url: '/signup',
 			templateUrl: 'modules/users/views/authentication/signup.client.view.jade'
+		})
+		.state('signin', {
+			url: '/signin',
+			templateUrl: 'modules/users/views/authentication/signin.client.view.jade'
 		});
 	} 
 ]);

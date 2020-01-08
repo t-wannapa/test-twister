@@ -6,7 +6,7 @@
 	var service = {
 		applicationEnvironment: window.env,
 		applicationModuleName: applicationModuleName,
-		applicationModuleVendorDependencies: ['ui.router', 'ui.bootstrap'],
+		applicationModuleVendorDependencies: ['ui.router', 'ui.bootstrap', 'ui.router.state.events'],
 		registerModule: registerModule
 	};
 
