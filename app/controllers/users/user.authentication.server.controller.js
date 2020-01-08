@@ -12,6 +12,7 @@ exports.signup = function (req, res) {
 	// Init user and add missing fields
 	var user = new User(req.body);
 	user.provider = 'local';
+	user.displayName = user.firstName + ' ' + user.lastName;
 
 	// The save the user
 	user.save(function (err) {

@@ -17,7 +17,12 @@ var Schema = mongoose.Schema;
  		type: String,
  		trim: true,
  		default: ''
- 	},
+	 },
+	displayName: {
+		type: String,
+		trim: true,
+		default: ''
+	},
  	email: {
  		type: String,
  		index: {

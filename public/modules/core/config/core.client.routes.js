@@ -11,7 +11,7 @@ angular.module('core').config([
 		$stateProvider
 		.state('home', {
 			url: '/',
-			templateUrl: '/modules/tweets/views/me.client.view.jade'
+			templateUrl: '/modules/tweets/views/feed.client.view.jade'
 		});
 	}
 ]);

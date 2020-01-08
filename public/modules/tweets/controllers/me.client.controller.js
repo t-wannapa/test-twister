@@ -5,7 +5,7 @@ angular.module('tweets').controller('MeController', [
 	'Authentication',
 	function($scope, Authentication) {
 		$scope.profile = {
-			name: Authentication.user.firstName + ' ' + Authentication.user.lastName,
+			name: Authentication.user.displayName,
 			screenName: Authentication.user.username,
 			tweetCount: 2,
 			followerCount: 34,

@@ -1,8 +1,9 @@
 'use strict';
-var users = require('../controllers/users/user.authentication.server.controller');
+
 var passport = require('passport');
 
 module.exports = function (app) {
+	var users = require('../controllers/users/user.authentication.server.controller');
 	
 	app.route('/signup').post(users.signup);
 	
