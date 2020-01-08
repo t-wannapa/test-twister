@@ -20,7 +20,7 @@ div(data-ng-controller="MeController", ng-strict-di)
       // /.border-box .profile
     .main-panel
       .tweet-list
-        .tweet(data-ng-repeat="tweet in tweets", data-ng-class="{'first-item' : $first}")
+        .tweet(data-ng-repeat="tweet in tweets | orderBy: '-tweetTime'", data-ng-class="{'first-item' : $first}")
           .name
             | {{ tweet.name }}
           .screen-name
