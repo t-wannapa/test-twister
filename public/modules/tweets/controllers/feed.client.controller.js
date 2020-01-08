@@ -43,7 +43,7 @@ angular.module('tweets').controller('FeedController', [
 				tweetTime: new Date().toISOString()
 			});
 
-			$http.post('/statues/update', {
+			$http.post('/statuses/update', {
 				name: name,
 				screenName: screenName,
 				tweetText: tweetText,
