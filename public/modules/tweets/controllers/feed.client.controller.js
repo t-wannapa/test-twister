@@ -3,8 +3,9 @@
 angular.module('tweets').controller('FeedController', [
 	'$scope', 
 	'$uibModal',
+	'$http',
 	'Authentication',
-	function($scope, $uibModal, Authentication) {
+	function($scope, $uibModal, $http, Authentication) {
 		$scope.profile = {
 			name: Authentication.user.displayName,
 			screenName: Authentication.user.username,
@@ -42,8 +43,20 @@ angular.module('tweets').controller('FeedController', [
 				tweetTime: new Date().toISOString()
 			});
 
-			$scope.tweetText = '';
-			$scope.profile.tweetCount += 1; 
+			$http.post('/statues/update', {
+				name: name,
+				screenName: screenName,
+				tweetText: tweetText,
+				tweetTime: new Date().toISOString()
+			})
+			.then(
+				function successCallback(response) {
+					$scope.tweetText = '';
+					$scope.profile.tweetCount += 1; 
+				  },
+				  function errorCallback(response) {
+					$scope.error = response.message;
+			  });
 		};
 
 		$scope.replyTo = function(screenName) {
