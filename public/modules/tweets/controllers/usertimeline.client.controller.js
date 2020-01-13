@@ -5,14 +5,25 @@ angular.module('tweets').controller('UserTimelineController', [
     '$http',
     '$stateParams',
     function ($scope, $http, $stateParams) {
-        $scope.profile = {
-            name: '',
-            screenName: $stateParams.username,
-            tweetCount: 1,
-            followerCount: 3,
-            followingCount: 34,
-            is_following: false
-        };
+        $http.get('/friendships/show/' + $stateParams.username)
+        .then(
+			function successCallback(response) {
+				$scope.profile = {
+                    name: '',
+                    screenName: $stateParams.username,
+                    tweetCount: 1,
+                    followerCount: 3,
+                    followingCount: 34,
+                    isFollowing: response.data.is_following,
+                    isFollowed: response.data.is_followed
+                };
+			  },
+			  function errorCallback(response) {
+				$scope.error = response.message;
+        });
+
+
+        
 
         $http.get('/statuses/user_timeline/' + $stateParams.username)
         .then(
@@ -29,13 +40,26 @@ angular.module('tweets').controller('UserTimelineController', [
             })
             .then(
                 function successCallback(response) {
-                    console.log(response.data.is_following);
-                    $scope.profile.is_following = response.data.is_following;
+                    $scope.profile.isFollowing = response.data.is_following;
                     $scope.profile.followerCount += 1;
                   },
                   function errorCallback(response) {
                     $scope.error = response.message;
             });
         }
+
+        $scope.unfollow = function (unFollowUsername) {
+          $http.post('/friendships/unfollow', {
+            unfollow_username: unFollowUsername
+          })
+          .then(
+              function successCallback(response) {
+                  $scope.profile.isFollowing = response.data.is_following;
+                  $scope.profile.followerCount -= 1;
+                },
+                function errorCallback(response) {
+                  $scope.error = response.message;
+          });
+      }
     }
-])
+]);

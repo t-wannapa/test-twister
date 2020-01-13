@@ -25,29 +25,29 @@ exports.show = function (req, res, next) {
             } else {
                 is_following = false;
             }
-        });
 
-        // Find is_followed
-        Follower.findOne({
-            username: req.user.username,
-            followers: req.params.username
-        }, function (err, follower) {
-            if (err) {
-                return res.status(400).send({
-                    message: 'Error'
+            // Find is_followed
+            Follower.findOne({
+                username: req.user.username,
+                followers: req.params.username
+            }, function (err, follower) {
+                if (err) {
+                    return res.status(400).send({
+                        message: 'Error'
+                    });
+                }
+
+                if (follower) {
+                    is_followed = true;
+                } else {
+                    is_followed = false;
+                }
+
+                res.json({
+                    is_following: is_following,
+                    is_followed: is_followed
                 });
-            }
-
-            if (follower) {
-                is_followed = true;
-            } else {
-                is_followed = false;
-            }
-        });
-
-        res.json({
-            is_following: is_following,
-            is_followed: is_followed
+            });
         });
     } else {
         res.status(400).send({
@@ -89,6 +89,45 @@ exports.follow = function (req, res, next) {
                     }
                 )
             });
+    } else {
+        res.status(400).send({
+            message: 'User is not signed in'
+        })
+    }
+}
+
+exports.unfollow = function (req, res, next) {
+    if (req.user) {
+        var username = req.user.username;
+        var unfollowUsername = req.body.unfollow_username;
+
+        Following.update(
+            { username: username },
+            { $pull: { followings: unfollowUsername }},
+            function (err, following) {
+                if (err) {
+                    return res.status(400).send({
+                        message: 'Error'
+                    });
+                }
+
+                Follower.update(
+                    { username: unfollowUsername },
+                    { $pull: { followers: username }},
+                    function (err, follower) {
+                        if (err) {
+                            return res.status(400).send({
+                                message: 'Error'
+                            });
+                        }
+
+                        res.json({
+                            is_following: false
+                        })
+                    }
+                )
+            }
+        )
     } else {
         res.status(400).send({
             message: 'User is not signed in'
