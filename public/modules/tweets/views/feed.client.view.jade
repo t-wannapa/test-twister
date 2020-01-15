@@ -30,11 +30,11 @@ div(data-ng-controller='FeedController')
               input.btn.btn-default(type='button', value='Tweet', data-ng-click="postTweet(tweetText, profile.name, profile.screenName)")
       .tweet-list
         .tweet(data-ng-repeat="tweet in timeline | orderBy: '-tweetTime'")
-          a(href='user.jade')
+          a(href='')
             .name
               | {{ tweet.name }}
             .screen-name
-              |  @{{ tweet.screenName }} {{ tweet.tweetTime }}
+              |  @{{ tweet.screenName }}
           .tweet-text
             | {{ tweet.tweetText }}
           .action
